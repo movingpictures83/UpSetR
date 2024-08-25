@@ -1,0 +1,2 @@
+Prefix plugins/UpSetR/example
+Plugin UpSetR inputfile parameters.txt outputfile output.pdf
