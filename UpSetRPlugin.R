@@ -26,12 +26,13 @@ input <- function(inputfile) {
 run <- function() {
 	print(sessionInfo())
 	mydata <- read.csv("plugins/UpSetR/example/movies.csv", header=TRUE, sep=",")
-  yy <- upset(mydata, nsets = 7, nintersects = 30, mb.ratio = c(0.5, 0.5),
+  yy <<- upset(mydata, nsets = 7, nintersects = 30, mb.ratio = c(0.5, 0.5),
           order.by = c("freq", "degree"), decreasing = c(TRUE,FALSE))
   #ggsave("output.pdf")
 }
 
 output <- function(outputfile) {
+	write.csv(yy$New_data, paste(outputfile, "csv", sep="."))
   ggsave(outputfile, width=300, height=300, limitsize=FALSE)
 }
 
